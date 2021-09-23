@@ -5,6 +5,11 @@
 
 Neptune runs plans with Terraform and posts its results on Pull Requests on GitHub (very specific, huh?).
 
+## Requirements
+
+- GoLang `v1.14`
+- Terraform `v1.0.7`
+
 ## Installing
 
 Go check the [releases](https://github.com/ContaAzul/neptune/releases) to get the latest version for your OS.
