@@ -98,12 +98,8 @@ func (plan *Plan) ProcessedOutput() string {
 		output = stripansi.Strip(output)
 	}
 
-	// Gets only the plan info
-	re := regexp.MustCompile(`(?ms)\-\-+\s+(.*\n\s+Plan:\s\d+\sto\sadd,\s\d+\sto\schange,\s\d+\sto\sdestroy\.)`)
-	output = re.FindStringSubmatch(output)[1]
-
 	// Remove exceeded spaces from the beginning of the lines (runs two times)
-	re = regexp.MustCompile(`(?m)^ {2}`)
+	re := regexp.MustCompile(`(?m)^ {2}`)
 	output = re.ReplaceAllString(output, "")
 	output = re.ReplaceAllString(output, "")
 
