@@ -98,35 +98,6 @@ func (plan *Plan) ProcessedOutput() string {
 		output = stripansi.Strip(output)
 	}
 
-	// Gets only the plan info
-	re := regexp.MustCompile(`(?ms)\-\-+\s+(.*\n\s+Plan:\s\d+\sto\sadd,\s\d+\sto\schange,\s\d+\sto\sdestroy\.)`)
-	output = re.FindStringSubmatch(output)[1]
-
-	// Remove exceeded spaces from the beginning of the lines (runs two times)
-	re = regexp.MustCompile(`(?m)^ {2}`)
-	output = re.ReplaceAllString(output, "")
-	output = re.ReplaceAllString(output, "")
-
-	// Moves the change icons (+, -, ~) to the beginning of the line
-	re = regexp.MustCompile(`(?m)^( +)([\+|\-|\~])`)
-	output = re.ReplaceAllString(output, "$2$1")
-
-	// Gives emphasys on what will hapen to the resource (will be purple and bold)
-	re = regexp.MustCompile(`(?m)^\#(.*)`)
-	output = re.ReplaceAllString(output, "@@ #$1 @@")
-
-	// Switches all changing lines (~) for removing and creating lines
-	re = regexp.MustCompile(`(?m)^\~(.*) = (.*) -> (.*)`)
-	output = re.ReplaceAllString(output, "-$1 = $2\n+$1 = $3")
-
-	// All changing chars (~) can now be replaces by diff changing char (!)
-	re = regexp.MustCompile(`(?m)^~`)
-	output = re.ReplaceAllString(output, "!")
-
-	// Replaces all replace symbols (-/+) by changing lines (!)
-	re = regexp.MustCompile(`(?m)^-/\+`)
-	output = re.ReplaceAllString(output, "!")
-
 	return output
 }
 
