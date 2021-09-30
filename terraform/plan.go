@@ -112,7 +112,7 @@ func (plan *Plan) ProcessedOutput() string {
 	output = re.ReplaceAllString(output, "@@ #$1 @@")
 
 	// Switches all changing lines (~) for removing and creating lines
-	re = regexp.MustCompile(`(?m)^\~(.*) = (.*) -> (.*)`)
+	re = regexp.MustCompile(`(?m)^\~(.*?) = (.*) -> (.*)`)
 	output = re.ReplaceAllString(output, "-$1 = $2\n+$1 = $3")
 
 	// All changing chars (~) can now be replaces by diff changing char (!)
