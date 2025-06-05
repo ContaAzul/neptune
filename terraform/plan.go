@@ -175,7 +175,7 @@ func (t Plan) BuildCommand() []string {
 
 	if !t.Vars.Empty() {
 		for _, v := range t.Vars.Options {
-			command = append(command, "-var '"+v+"'")
+			command = append(command, "-var='"+v+"'")
 		}
 	}
 
