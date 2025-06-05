@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/igorbrites/neptune/github"
-	"github.com/igorbrites/neptune/terraform"
+	"github.com/ContaAzul/neptune/github"
+	"github.com/ContaAzul/neptune/terraform"
 )
 
 func main() {
@@ -46,10 +46,4 @@ func parseFlags(plan *terraform.Plan, pr *github.PullRequest) {
 	flag.IntVar(&pr.Number, "pr-number", 0, "Pull Request number")
 
 	flag.Parse()
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
 }

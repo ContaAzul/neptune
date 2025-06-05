@@ -7,7 +7,7 @@ Neptune runs plans with Terraform and posts its results on Pull Requests on GitH
 
 ## Requirements
 
-- GoLang `v1.14`
+- GoLang `v1.24`
 - Terraform `v1.0.7`
 
 ## Installing

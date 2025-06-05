@@ -7,8 +7,8 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/ContaAzul/neptune/terraform"
 	"github.com/google/go-github/github"
-	"github.com/igorbrites/neptune/terraform"
 	"golang.org/x/oauth2"
 )
 
